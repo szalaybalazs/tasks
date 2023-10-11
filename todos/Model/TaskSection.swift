@@ -60,4 +60,13 @@ enum TaskSection: Identifiable, CaseIterable, Hashable {
     static func == (lhs: TaskSection, rhs: TaskSection) -> Bool{
         lhs.id == rhs.id
     }
+    
+    var taskGroup: TaskGroup? {
+        switch self {
+        case .list(let group):
+            return group
+        default:
+            return nil
+        }
+    }
 }
